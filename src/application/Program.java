@@ -49,8 +49,11 @@ public class Program {
 		System.out.println("TAXES PAID:");
 
 		for (TaxPayer pessoa : pessoas) {
-			sum += pessoa.calcularImposto();
 			System.out.println(pessoa);
+		}
+		
+		for (TaxPayer pessoa : pessoas) {
+			sum += pessoa.calcularImposto();
 		}
 
 		System.out.println();
