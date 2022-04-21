@@ -23,14 +23,24 @@ public class Individual extends TaxPayer {
 
 	@Override
 	public Double calcularImposto() {
+
+		double basicTax = 0.0;
+
 		if (getRendaAnual() < 20000.00) {
-			return getRendaAnual() * 0.15;
-		} else if (gastosSaude > 0) {
-			Double imposto = getRendaAnual() * 0.25;
-			return imposto - gastosSaude * 0.5;
+			basicTax = getRendaAnual() * 0.15;
+
 		} else {
-			return getRendaAnual() * 0.25;
+			basicTax = getRendaAnual() * 0.25;
+
 		}
+
+		basicTax -= gastosSaude * 0.5;
+
+		if (basicTax < 0.0) {
+			basicTax = 0.0;
+		}
+
+		return basicTax;
 	}
 
 }
